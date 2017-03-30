@@ -1,0 +1,28 @@
+<head>
+<link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+<script src="https://unpkg.com/vue"></script>
+
+<link type="text/css" rel="stylesheet" href="gdtimepicker.css">
+<script src="gdtimepicker.js">
+</head>
+
+
+
+  <div id="vueApp" class="container">
+  <br>
+  <gdtimepicker v-model="v1"><label>Enter start time:&nbsp;</label></gdtimepicker>
+  <br>
+  <h6> Start Time input is:{{ v1 }}</h6>
+  <br>
+  <gdtimepicker v-model="end1"><label>Enter end time:&nbsp;</label></gdtimepicker>
+  <br>
+  <h6> End input is:{{ end1 }}</h6>
+
+   </div>
+
+<script>
+   var vueVM = new Vue({ 
+        el: '#vueApp'
+        ,data: { v1: '9:15 AM',end1: '4:45 PM'}
+    });
+ </script>
