@@ -5,6 +5,10 @@
 <script src="https://unpkg.com/vue"></script>
 
 <style>
+  .blueback { background-Color:cornflowerblue; }
+</style>
+
+<style>
   .ga-tp-cell { max-width: 2em; }
   .ga-tp-cell:hover { color: lightslategray; }
   .ga-tp-sel { color: chocolate; }
@@ -139,7 +143,7 @@ Vue.component('gdtimepicker', {
   <h6>(homage to jQuery UI timepicker)</h6>
 </div>
 
-  <div id="vueApp" class="container">
+  <div id="vueApp" class="container blueback">
   <br>
     <gdtimepicker v-model="v1"><label>Enter start time:&nbsp;</label></gdtimepicker> <i>(mouseover)</i>
   <br>
