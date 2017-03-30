@@ -1,0 +1,22 @@
+  .ga-tp-cell { max-width: 2em; }
+  .ga-tp-cell:hover { color: lightslategray; }
+  .ga-tp-sel { color: chocolate; }
+  .ga-tp-08sz { font-size: 0.8em;}
+  .gd-tp-dropdown {
+      position: relative;
+      display: inline-block;
+  }
+
+  .gd-tp-dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: lightgray;
+      min-width: 10em;
+      box-shadow: 0em 0.5em 1.0em 0em rgba(0,0,0,0.2);
+      padding: 0.5em 0.5em 0.5em 0.5em;
+      z-index: 1;
+  }
+
+  .gd-tp-dropdown:hover .gd-tp-dropdown-content {
+      display: block;
+  }
