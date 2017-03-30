@@ -84,7 +84,7 @@ Vue.component('gdtimepicker', {
   ,created: function () { // setting component data objects from props params
      this.tmStr = this.value;
   }
-  ,template: `<div class="gd-tp-dropdown"><slot></slot><input type="text" v-model="tmStr" @keyup="emitIt">
+  ,template: `<div class="gd-tp-dropdown"><slot></slot><input style="maxWidth:5em" type="text" maxlength="8" v-model="tmStr" @keyup="emitIt">
 <div class="gd-tp-dropdown-content">
     <table :class="tableClass">
       <thead><th :class="thClass" colspan="7">Hour</th>&nbsp;<th :class="thClass">Min</th></thead> <tbody>
