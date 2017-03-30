@@ -153,8 +153,21 @@ Vue.component('gdtimepicker', {
 
    <pre>
    <p align="center"> Use it with v-model.  Slot can be a label tag, etc. </p>
-    <p>
+    <p align="center">
     &lt;gdtimepicker v-model="v1"&gt;&lt;label&gt;Enter start time: &lt;/label&gt;&lt;/gdtimepicker&gt;
+   </p>
+   <label>Use Your Own Styles, too!</label>
+   <code> PROPS:
+               tableClass: 
+               thClass: 
+               hrClass:
+               mnClass: 
+               cellClass: 
+               selClass:
+
+   </code>
+    <p align="center">
+    &lt;gdtimepicker v-model="v1" table-class="mytableCls" sel-class="mySelectedCls" &gt;&lt;label&gt;Enter start time: &lt;/label&gt;&lt;/gdtimepicker&gt;
    </p>
    </pre>
    <h6 align="center"><i>MIT License</i></h6>
