@@ -48,7 +48,7 @@ Vue.component('gdtimepicker', {
                ,cellClass: {type:String,default:'ga-tp-cell'} 
                ,selClass: {type:String,default:'ga-tp-sel'} 
      }
-  ,data: function() { return({ tmStr: '9:00 AM' }); }
+  ,data: function() { return { tmStr: this.value }; }
   ,computed: {
     tmParts: function() { // parse the hour, min, tt to array
       var ta = ['','','AM'];
@@ -84,9 +84,6 @@ Vue.component('gdtimepicker', {
         ro = this.selClass;
       return ro;
     }
-  }
-  ,created: function () { // setting component data objects from props params
-     this.tmStr = this.value;
   }
   ,template: `<div class="gd-tp-dropdown"><slot></slot><input style="maxWidth:5em" type="text" maxlength="8" v-model="tmStr" @keyup="emitIt">
 <div class="gd-tp-dropdown-content">
