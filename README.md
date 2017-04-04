@@ -12,7 +12,7 @@ https://compmeist.github.io/gdtimepicker/
 
     
 
-    <gdtimepicker v-model="v1"><label>Enter start time: </label></gdtimepicker>
+    <gdtimepicker v-model="v1" input-class="form-control input-sm"><label>Enter start time: </label></gdtimepicker>
  
  
 (homage to jQuery UI timepicker)
