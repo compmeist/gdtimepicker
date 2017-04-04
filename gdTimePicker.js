@@ -1,5 +1,6 @@
 Vue.component('gdtimepicker', {
       props: { value: {type:String,default:'8:00 AM'} 
+               ,inputClass: {type:String,default:'form-control'}
                ,tableClass: {type:String,default:'table table-condensed table-bordered'},trClass: {type:String,default:''} 
                ,thClass: {type:String,default:'text-center ga-tp-08sz'}
                ,hrClass: {type:String,default:'text-center'} 
@@ -44,7 +45,7 @@ Vue.component('gdtimepicker', {
       return ro;
     }
   }
-  ,template: `<div class="gd-tp-dropdown"><slot></slot><input style="maxWidth:5em" type="text" maxlength="8" v-model="tmStr" @keyup="emitIt">
+  ,template: `<div class="gd-tp-dropdown"><slot></slot><input :class="inputClass" type="text" maxlength="8" v-model="tmStr" @keyup="emitIt">
 <div class="gd-tp-dropdown-content">
     <table :class="tableClass">
       <thead><th :class="thClass" colspan="7">Hour</th>&nbsp;<th :class="thClass">Min</th></thead> <tbody>
