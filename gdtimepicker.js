@@ -1,14 +1,17 @@
 Vue.component('gdtimepicker', {
       props: { value: {type:String,default:'8:00 AM'} 
                ,inputClass: {type:String,default:'form-control'}
-               ,tableClass: {type:String,default:'table table-condensed table-bordered'},trClass: {type:String,default:''} 
+               ,tableClass: {type:String,default:'table table-condensed table-bordered'}
+               ,trClass: {type:String,default:''} 
                ,thClass: {type:String,default:'text-center ga-tp-08sz'}
                ,hrClass: {type:String,default:'text-center'} 
                ,mnClass: {type:String,default:'text-center'} 
                ,cellClass: {type:String,default:'ga-tp-cell'} 
                ,selClass: {type:String,default:'ga-tp-sel'} 
+               ,slContClass: {type:String,default:'gd-slider-container'}
+               ,sliderClass: {type:String,default:'gd-slider'}
      }
-  ,data: function() { return { tmStr: this.value }; }
+  ,data: function() { return { tmStr: this.value,baseMins:0,addedMins:0 }; }
   ,computed: {
     tmParts: function() { // parse the hour, min, tt to array
       var ta = ['','','AM'];
@@ -31,7 +34,15 @@ Vue.component('gdtimepicker', {
       this.tmStr = rs; this.emitIt();
     }
     ,setMn: function(s2) {
+      this.baseMins = s2;
       var rs = this.tmParts[0] + ':' + s2 + ' ' + this.tmParts[2];
+      this.tmStr = rs; this.emitIt();
+    }
+    ,setAddedMins: function() {
+      var minInt = parseInt(this.addedMins) + parseInt(this.baseMins);
+      var minIntStr = '' + minInt;
+      if (minInt < 10) minIntStr = '0' + minInt;
+      var rs = this.tmParts[0] + ':' + minIntStr + ' ' + this.tmParts[2];
       this.tmStr = rs; this.emitIt();
     }
     ,aC: function(s,s3) { var ro = null;
@@ -45,8 +56,10 @@ Vue.component('gdtimepicker', {
       return ro;
     }
   }
-  ,template: `<div class="gd-tp-dropdown"><slot></slot><input :class="inputClass" type="text" maxlength="8" v-model="tmStr" @keyup="emitIt">
+  ,template: `<div class="gd-tp-dropdown"><slot></slot>
+  <input :class="inputClass" type="text" maxlength="8" v-model="tmStr" @keyup="emitIt">
 <div class="gd-tp-dropdown-content">
+   <div>
     <table :class="tableClass">
       <thead><th :class="thClass" colspan="7">Hour</th>&nbsp;<th :class="thClass">Min</th></thead> <tbody>
        <tr :class="trClass"><th rowspan="2" :class="thClass" scope="row">AM</th>
@@ -86,6 +99,10 @@ Vue.component('gdtimepicker', {
          &nbsp;
          <td :class="mnClass"><div :class="cellClass" @click="setMn('45')"><span :class="aCM('45')">45</span></div></td>
        </tr>  </tbody></table>
+      </div>
+      <div :class="slContClass">
+         <input :class="sliderClass" type="range" min="0" max="14" v-model="addedMins" @input="setAddedMins" >
+      </div>
    </div> 
 </div>`
 });
