@@ -16,3 +16,5 @@ https://compmeist.github.io/gdtimepicker/
  
  
 (homage to jQuery UI timepicker)
+
+MIT License
