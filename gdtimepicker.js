@@ -37,6 +37,7 @@ Vue.component('gdtimepicker', {
       this.baseMins = s2;
       var rs = this.tmParts[0] + ':' + s2 + ' ' + this.tmParts[2];
       this.tmStr = rs; this.emitIt();
+      this.addedMins = 0;
     }
     ,setAddedMins: function() {
       var minInt = parseInt(this.addedMins) + parseInt(this.baseMins);
