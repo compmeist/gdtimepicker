@@ -11,7 +11,7 @@ Vue.component('gdtimepicker', {
                ,slContClass: {type:String,default:'gd-slider-container'}
                ,sliderClass: {type:String,default:'gd-slider'}
      }
-  ,data: function() { return { tmStr: this.value,baseMins:0,addedMins:0 }; }
+  ,data: function() { return { tmStr: this.value,addedMins:0 }; }
   ,watch: { 'value': function() {this.tmStr = this.value; }}
   ,computed: {
     tmParts: function() { // parse the hour, min, tt to array
@@ -26,6 +26,10 @@ Vue.component('gdtimepicker', {
       }  
       return ta; 
     }
+    ,baseMins: function() {
+      var bm = this.tmParts[1];
+      return ( bm - (bm % 15) );
+    }
   }
   ,methods: { emitIt: function () {
       this.$emit('input',this.tmStr); 
@@ -35,7 +39,7 @@ Vue.component('gdtimepicker', {
       this.tmStr = rs; this.emitIt();
     }
     ,setMn: function(s2) {
-      this.baseMins = s2;
+      
       var rs = this.tmParts[0] + ':' + s2 + ' ' + this.tmParts[2];
       this.tmStr = rs; this.emitIt();
       this.addedMins = 0;
