@@ -12,6 +12,7 @@ Vue.component('gdtimepicker', {
                ,sliderClass: {type:String,default:'gd-slider'}
      }
   ,data: function() { return { tmStr: this.value,baseMins:0,addedMins:0 }; }
+  ,watch: { 'value': function() {this.tmStr = this.value; }}
   ,computed: {
     tmParts: function() { // parse the hour, min, tt to array
       var ta = ['','','AM'];
