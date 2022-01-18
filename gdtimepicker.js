@@ -17,7 +17,7 @@ Vue.component('gdtimepicker', {
     tmParts: function() { // parse the hour, min, tt to array
       var ta = ['','','AM'];
       var ta2 = [];
-      var ws = this.tmStr;
+      var ws = (this.tmStr || '');
       if (ws.split) ta2 = ws.split(':'); 
       if (ta2.length > 1) {
         ta[0] = ta2[0];
