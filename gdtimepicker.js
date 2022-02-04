@@ -35,12 +35,12 @@ Vue.component('gdtimepicker', {
       this.$emit('input',this.tmStr); 
     }
     ,setIt: function(s1,s3) {
-      var rs = s1 + ':' + this.tmParts[1] + ' ' + s3;
+      var rs = s1 + ':' + (this.tmParts[1] || '00') + ' ' + s3;
       this.tmStr = rs; this.emitIt();
     }
     ,setMn: function(s2) {
       
-      var rs = this.tmParts[0] + ':' + s2 + ' ' + this.tmParts[2];
+      var rs = (this.tmParts[0] || '7') + ':' + s2 + ' ' + (this.tmParts[2] || 'AM');
       this.tmStr = rs; this.emitIt();
       this.addedMins = 0;
     }
@@ -48,7 +48,7 @@ Vue.component('gdtimepicker', {
       var minInt = parseInt(this.addedMins) + parseInt(this.baseMins);
       var minIntStr = '' + minInt;
       if (minInt < 10) minIntStr = '0' + minInt;
-      var rs = this.tmParts[0] + ':' + minIntStr + ' ' + this.tmParts[2];
+      var rs = (this.tmParts[0] || '7') + ':' + minIntStr + ' ' + (this.tmParts[2] || 'AM');
       this.tmStr = rs; this.emitIt();
     }
     ,aC: function(s,s3) { var ro = null;
